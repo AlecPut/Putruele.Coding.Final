@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Audio Processor</title>
+</head>
+<body>
+  <h1>LET ME HELP MASTER YOUR SONG PLEASE</h1>
+<h2>by Alec Putruele</h2>
+  <h3>Load Your Audio File</h3>
+  <input type="file" id="audio-file" accept="audio/*">
+
+  <h3>Equalizer</h3>
+  <label>Low Gain:</label><input type="range" id="low-gain" min="-20" max="20" step="1">
+  <label>Mid Gain:</label><input type="range" id="mid-gain" min="-20" max="20" step="1">
+  <label>High Gain:</label><input type="range" id="high-gain" min="-20" max="20" step="1">
+
+  <h3>Compressor</h3>
+  <label>Low Threshold:</label><input type="range" id="low-threshold" min="-50" max="0" step="1">
+
+  <h3>Stereo Widening</h3>
+  <label>Stereo Width:</label><input type="range" id="stereo-width" min="-1" max="1" step="0.1">
+
+  <h3>Limiting</h3>
+  <label>Threshold</label><input type ="range" id="limiting-threshold" min="0" max="1" step="0.1">
+
+  <script src="main.js"></script>
+</body>
+</html>

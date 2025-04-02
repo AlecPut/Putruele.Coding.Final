@@ -1,7 +1,7 @@
 //Equalization Stage
 
 //Multiband Compressor stage
-class MultibandCompressor {
+export default class MultibandCompressor {
     constructor(audioContext) {
       this.audioContext = audioContext;
   
@@ -55,10 +55,9 @@ class MultibandCompressor {
       this.output.connect(destination);
     }
   }
-  
+ 
   // Usage
   
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  const compressor = new MultibandCompressor(audioCtx);
-  compressor.connect(audioCtx.destination);
+
+
 
