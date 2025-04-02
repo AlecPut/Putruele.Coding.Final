@@ -3,7 +3,7 @@ import Equalizer from "./Effects/Equalizaer";
 import MultibandCompressor from "./Effects/MultibandComp";
 import StereoWidening from "./Effects/StereoWidening";
 import Limiting from "./Effects/Limiting";
-let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+let audioCtx = new AudioContext;
 let sourceNode, audioBuffer;
 let eq, compressor, stereo, limiter;
 
