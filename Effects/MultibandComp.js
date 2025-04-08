@@ -1,7 +1,7 @@
-//Equalization Stage
 
 //Multiband Compressor stage
 export default class MultibandCompressor {
+
     constructor(audioContext) {
       this.audioContext = audioContext;
   
@@ -31,12 +31,14 @@ export default class MultibandCompressor {
       this.lowGain = this.audioContext.createGain();
       this.midGain = this.audioContext.createGain();
       this.highGain = this.audioContext.createGain();
+
+      
   
       // Signal Routing
       this.input.connect(this.lowpass);
       this.input.connect(this.highpass);
       
-      this.highpass.connect(this.bandpass);
+      this.input.connect(this.bandpass);
   
       this.lowpass.connect(this.lowCompressor);
       this.bandpass.connect(this.midCompressor);
@@ -55,7 +57,26 @@ export default class MultibandCompressor {
       this.output.connect(destination);
     }
   }
- 
+  export function setupCompressorControls(compressor) {
+    const bands = ['low', 'mid', 'high'];
+    bands.forEach((band) => {
+      ['threshold', 'attack', 'release', 'ratio', 'knee'].forEach((param) => {
+        const input = document.getElementById(`${band}-${param}`);
+        if (input) {
+          input.addEventListener("input", () => {
+            compressor[`${band}Compressor`][param].value = parseFloat(input.value);
+          });
+        }
+      });
+  
+      const gainInput = document.getElementById(`${band}-gain`);
+      if (gainInput) {
+        gainInput.addEventListener("input", () => {
+          compressor[`${band}Gain`].gain.value = parseFloat(gainInput.value);
+        });
+      }
+    });
+  }
   // Usage
   
 
