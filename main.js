@@ -1,13 +1,12 @@
-import Equalizer from "./Effects/Equalizer.js";
+
 import MultibandCompressor, { setupCompressorControls } from "./Effects/MultibandComp.js";
 
-import StereoWidening from "./Effects/StereoWidening.js";
-import Limiting from "./Effects/Limiting.js";
+
 
 let audioCtx = new AudioContext();
 let sourceNode, audioBuffer;
 
-let eq, compressor, stereo, limiter;
+let  compressor;
 let effectsInitialized = false;
 
 // UI Elements
@@ -33,16 +32,9 @@ document.getElementById("audio-file").addEventListener("change", function (event
 
 // Init Effects Chain (just once)
 function initEffects() {
-  //eq = new Equalizer(audioCtx);
+  
   compressor = new MultibandCompressor(audioCtx);
-  //stereo = new StereoWidening(audioCtx);
- // limiter = new Limiting(audioCtx);
-
-  // Chain: EQ -> Compressor -> Stereo -> Limiter -> Output
-  // eq.connect(compressor.input);
-  // compressor.connect(stereo.input);
-  // stereo.connect(limiter.input);
-  // limiter.connect(audioCtx.destination);
+// chain: Audio File -> MultibandCompressor -> output
   compressor.connect(audioCtx.destination);
     effectsInitialized = true;
 
@@ -65,7 +57,7 @@ function playAudio() {
   sourceNode = audioCtx.createBufferSource();
   sourceNode.buffer = audioBuffer;
 
-  // Connect source to EQ (which starts the chain)
+
   sourceNode.connect(compressor.input);
   sourceNode.start();
 
