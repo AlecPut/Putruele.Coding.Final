@@ -64,6 +64,7 @@ export default class MultibandCompressor {
         const input = document.getElementById(`${band}-${param}`);
         if (input) {
           input.addEventListener("input", () => {
+            console.log(input);
             compressor[`${band}Compressor`][param].value = parseFloat(input.value);
           });
         }

@@ -43,8 +43,8 @@ function initEffects() {
   // compressor.connect(stereo.input);
   // stereo.connect(limiter.input);
   // limiter.connect(audioCtx.destination);
-  compressor.input.connect(audioCtx.destination);
-  effectsInitialized = true;
+  compressor.connect(audioCtx.destination);
+    effectsInitialized = true;
 
   setupCompressorControls(compressor);
 
