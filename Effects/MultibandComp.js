@@ -57,6 +57,8 @@ export default class MultibandCompressor {
       this.output.connect(destination);
     }
   }
+
+  //Setting up controls
   export function setupCompressorControls(compressor) {
     const bands = ['low', 'mid', 'high'];
     bands.forEach((band) => {
@@ -78,8 +80,5 @@ export default class MultibandCompressor {
       }
     });
   }
-  // Usage
-  
-
-
+ 
 
