@@ -115,7 +115,7 @@ if (!audioBuffer) {
 // Pause Logic
 function pauseAudio() {
   if (sourceNode) {
-    // sourceNode.playbackRate = 0
+
 
     sourceNode.stop();
     sourceNode = null;

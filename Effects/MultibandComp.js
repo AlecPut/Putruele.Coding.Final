@@ -10,12 +10,12 @@ export default class MultibandCompressor {
     this.output = this.audioContext.createGain();
   
     // Filters for band splitting
-    let crossoverLow = parseFloat(document.getElementById('low-crossover-value')) || 400; // Default to 200 Hz
+    let crossoverLow = parseFloat(document.getElementById('low-crossover-value')) || 400; // Default to 400 Hz
     this.lowpass = this.audioContext.createBiquadFilter();
     this.lowpass.type = "lowpass";
     this.lowpass.frequency.value = crossoverLow;
   
-    let crossoverHigh = parseFloat(document.getElementById('high-crossover-value')) || 6000; // Default to 5000 Hz
+    let crossoverHigh = parseFloat(document.getElementById('high-crossover-value')) || 6000; // Default to 6000 Hz
     this.highpass = this.audioContext.createBiquadFilter();
     this.highpass.type = "highpass";
     this.highpass.frequency.value = crossoverHigh;
