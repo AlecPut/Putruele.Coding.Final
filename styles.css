@@ -1,4 +1,7 @@
 h1 {
+
+   
+
     color: rgb(0, 135, 181);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 36px;
@@ -16,10 +19,15 @@ h3 {
 }
 /* Set the background color of the entire page to light brown */
 body {
+    background-image: url("Blueberrylel.jpg");
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    background-position: top right;
     background-color: rgb(209, 207, 255); /* Light brown */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+  
 }
 
 /* Add navy blue borders around each band */
